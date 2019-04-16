@@ -1,4 +1,4 @@
-module Onfleet
+module OnfleetClub
   module TestData
     def recipient
 

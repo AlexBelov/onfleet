@@ -1,5 +1,5 @@
-module Onfleet
-  class OnfleetObject
+module OnfleetClub
+  class OnfleetClubObject
     attr_reader :params
     def initialize params
       if params.kind_of?(Hash)
@@ -26,7 +26,7 @@ module Onfleet
         if respond_to?("#{str}=")
           instance_var = instance_variable_get(var)
           if klass = Util.object_classes[str]
-            if instance_var.is_a?(OnfleetObject)
+            if instance_var.is_a?(OnfleetClubObject)
               attrs[Util.to_camel_case_lower(str).to_sym] = parse_onfleet_obj(instance_var)
             elsif instance_var.is_a?(Array)
               objs = []
@@ -56,7 +56,7 @@ module Onfleet
     private
 
       def parse_onfleet_obj obj
-        if obj.is_a?(OnfleetObject)
+        if obj.is_a?(OnfleetClubObject)
           if obj.respond_to?('id') && obj.id && (obj.is_a?(Destination) || obj.is_a?(Recipient) || obj.is_a?(Task))
              obj.id
           else

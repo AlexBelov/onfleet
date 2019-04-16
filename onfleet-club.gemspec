@@ -1,12 +1,12 @@
 Gem::Specification.new do |s|
-  s.name        = 'onfleet-ruby'
+  s.name        = 'onfleet-club'
   s.version     = '0.1.4'
   s.date        = '2016-04-08'
-  s.summary     = "Onfleet ruby api"
-  s.description = "To interact with Onfleet's API"
+  s.summary     = "OnfleetClub ruby api"
+  s.description = "To interact with OnfleetClub's API"
   s.authors     = ["Nick Wargnier"]
   s.email       = 'nick@stylelend.com'
-  s.homepage    = 'http://rubygems.org/gems/onfleet-ruby'
+  s.homepage    = 'http://rubygems.org/gems/onfleet-club'
   s.license     = 'MIT'
 
   s.add_dependency('rest-client', '~> 2.0.1')

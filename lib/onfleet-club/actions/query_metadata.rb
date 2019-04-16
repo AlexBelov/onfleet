@@ -1,10 +1,10 @@
-module Onfleet
+module OnfleetClub
   module Actions
     module QueryMetadata
       module ClassMethods
         def query_by_metadata metadata
           api_url = "#{self.api_url}/metadata"
-          response = Onfleet.request(api_url, :post, metadata)
+          response = OnfleetClub.request(api_url, :post, metadata)
           response.map { |item| Util.constantize("#{self}").new(item) } if response.is_a? Array
         end
       end

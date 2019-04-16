@@ -1,4 +1,4 @@
-module Onfleet
+module OnfleetClub
   module Actions
     module Update
       module ClassMethods

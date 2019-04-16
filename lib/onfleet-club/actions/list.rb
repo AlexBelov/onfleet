@@ -1,4 +1,4 @@
-module Onfleet
+module OnfleetClub
   module Actions
     module List
       module ClassMethods
@@ -12,7 +12,7 @@ module Onfleet
             end
           end
 
-          response = Onfleet.request(api_url, :get)
+          response = OnfleetClub.request(api_url, :get)
           response.compact.map do |listObj|
             Util.constantize("#{self}").new(listObj)
           end

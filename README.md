@@ -1,28 +1,28 @@
-# Onfleet Ruby SDK
+# OnfleetClub Ruby SDK
 
-Ruby SDK for Onfleet.com's API. **This is NOT an official SDK**. [Official Documentation](http://docs.onfleet.com/docs/). The entirety of the response payload is accessible by instance methods. The raw response can is accessible through the `params` instance method on all objects.
+Ruby SDK for OnfleetClub.com's API. **This is NOT an official SDK**. [Official Documentation](http://docs.onfleet.com/docs/). The entirety of the response payload is accessible by instance methods. The raw response can is accessible through the `params` instance method on all objects.
 
 
 ## Usage
 Install the gem.
 ```ruby
-gem 'onfleet-ruby'
+gem 'onfleet-club'
 ```
 
 Set the API Key.
 ```ruby
-Onfleet.api_key = API_KEY
+OnfleetClub.api_key = API_KEY
 ```
 
 Objects
 ```ruby
-Onfleet::Organization
-Onfleet::Admin
-Onfleet::Worker
-Onfleet::Team
-Onfleet::Destination
-Onfleet::Recipient
-Onfleet::Task
+OnfleetClub::Organization
+OnfleetClub::Admin
+OnfleetClub::Worker
+OnfleetClub::Team
+OnfleetClub::Destination
+OnfleetClub::Recipient
+OnfleetClub::Task
 ```
 
 ## Organizations
@@ -30,7 +30,7 @@ Onfleet::Task
 **GET**
 
 ```ruby
-org = Onfleet::Organization.get
+org = OnfleetClub::Organization.get
 org.id # => 1234567890
 org.name # => OrgName
 org.email # => org@email.com
@@ -44,7 +44,7 @@ org.time_last_modified # => 1438713844000
 **GET delegatee details**
 
 ```ruby
-delegatee = Onfleet::Organization.get_delegatee_details(id)
+delegatee = OnfleetClub::Organization.get_delegatee_details(id)
 delegatee.id # => "4eKRvRGA7JW6C8TaGyuJeSrK"
 delegatee.name # => "North Beach Runners"
 delegatee.email # => "hello@nbr.co"
@@ -66,12 +66,12 @@ delegatee.country # => "US"
 **Create**
 
 ```ruby
-admin = Onfleet::Admin.create({name: 'John Doe', email: 'john@company.com', phone: '41555546782'})
+admin = OnfleetClub::Admin.create({name: 'John Doe', email: 'john@company.com', phone: '41555546782'})
 ```
 
 **Update**
 ```ruby
-admin = Onfleet::Admin.update('ADMIN_ID', {name: 'New Name'})
+admin = OnfleetClub::Admin.update('ADMIN_ID', {name: 'New Name'})
 # or
 admin.name = "New Name"
 admin.save
@@ -79,13 +79,13 @@ admin.save
 
 **Delete**
 ```ruby
-Onfleet::Admin.delete('ADMIN_ID') # => true
+OnfleetClub::Admin.delete('ADMIN_ID') # => true
 ```
 
 **List**
 ```ruby
-list = Onfleet::Admin.list # => [<Onfleet::Admin>]
-list.first # => Onfleet::Admin
+list = OnfleetClub::Admin.list # => [<OnfleetClub::Admin>]
+list.first # => OnfleetClub::Admin
 ```
 
 ## Workers
@@ -112,7 +112,7 @@ Vehicle
 **Create**
 
 ```ruby
-worker = Onfleet::Worker.create({name: 'John Doe', email: 'john@company.com', teams: ["TEAM_ID"], vehicle: {type: 'CAR'} })
+worker = OnfleetClub::Worker.create({name: 'John Doe', email: 'john@company.com', teams: ["TEAM_ID"], vehicle: {type: 'CAR'} })
 worker.name # => "John Doe"
 worker.vehicle.type # => "CAR"
 
@@ -124,7 +124,7 @@ worker.vehicle.color # => "Blue"
 
 **Update**
 ```ruby
-Onfleet::Worker.update({name: "New Name"}
+OnfleetClub::Worker.update({name: "New Name"}
 # or
 worker.name = "New Name"
 work.save
@@ -133,29 +133,29 @@ worker.name # => "New Name"
 
 **Delete**
 ```ruby
-Onfleet::Worker.delete('WORKER_ID') # => true
+OnfleetClub::Worker.delete('WORKER_ID') # => true
 ```
 
 **List**
 ```ruby
-Onfleet::Worker.list
+OnfleetClub::Worker.list
 ```
 
 **Get**
 ```ruby
-worker = Onfleet::Worker.get('WORKER_ID')
+worker = OnfleetClub::Worker.get('WORKER_ID')
 ```
 
 ## Teams
 
 **List**
 ```ruby
-Onfleet::Team.list
+OnfleetClub::Team.list
 ```
 
 **Get**
 ```ruby
-Onfleet::Team.get('TEAM_ID')
+OnfleetClub::Team.get('TEAM_ID')
 ```
 
 ## Destinations
@@ -186,7 +186,7 @@ Address
 
 **Create**
 ```ruby
-destination = Onfleet::Destination.create({address: {unparsed: '200 12th st, 94103, ca'} })
+destination = OnfleetClub::Destination.create({address: {unparsed: '200 12th st, 94103, ca'} })
 
 destination.street # => '12th street'
 destination.number # => '200'
@@ -195,7 +195,7 @@ destination.postal_code # => '94103'
 
 **Get**
 ```ruby
-Onfleet::Destination('DEST_ID')
+OnfleetClub::Destination('DEST_ID')
 ```
 
 ## Recipients
@@ -210,14 +210,14 @@ Onfleet::Destination('DEST_ID')
 
 **Create**
 ```ruby
-recipient = Onfleet::Recipient.create({name: 'John Doe', phone: '4155556789'})
+recipient = OnfleetClub::Recipient.create({name: 'John Doe', phone: '4155556789'})
 recipient.id # => ChdA82dA~Dn232
 recpient.name # => 'John Doe'
 ```
 
 **Update**
 ```ruby
-Onfleet::Recipient.update('REC_ID', {name: 'New Name'})
+OnfleetClub::Recipient.update('REC_ID', {name: 'New Name'})
 # or
 recipient.name = "New Name"
 recipient.save
@@ -225,7 +225,7 @@ recipient.save
 
 **Get**
 ```ruby
-Onfleet::Recipient.get('REC_ID')
+OnfleetClub::Recipient.get('REC_ID')
 ```
 
 **Find**
@@ -235,11 +235,11 @@ Onfleet::Recipient.get('REC_ID')
 
 ```ruby
 # by name (case sensitive)
-rec = Onfleet::Recipient.find('name', 'John Doe')
+rec = OnfleetClub::Recipient.find('name', 'John Doe')
 rec.name = "John Doe"
 
 #by phone
-rec = Onfleet::Recipient.find('phone', '4155556789')
+rec = OnfleetClub::Recipient.find('phone', '4155556789')
 ```
 
 ## Tasks
@@ -261,11 +261,11 @@ rec = Onfleet::Recipient.find('phone', '4155556789')
 ```ruby
 # First Create a destination and Recipient
 # Then create the task
-task = Onfleet::Task.create({recipients: ['REC_ID'], destination: 'DEC_ID' })
+task = OnfleetClub::Task.create({recipients: ['REC_ID'], destination: 'DEC_ID' })
 
-# Alternatively, create the Destination and Recipient in a single call to Onfleet
+# Alternatively, create the Destination and Recipient in a single call to OnfleetClub
 # If a recipient exists for the phone number, it will be updated with the new information
-another_task = Onfleet::Task.create(
+another_task = OnfleetClub::Task.create(
   destination: {
       address: {
           unparsed: "123 Smith St"
@@ -282,7 +282,7 @@ another_task = Onfleet::Task.create(
 
 **Update**
 ```ruby
-Onfleet::Task.update('TASK_ID', {notes: 'Adding some notes'})
+OnfleetClub::Task.update('TASK_ID', {notes: 'Adding some notes'})
 # or
 task.notes = "Adding some notes"
 task.save
@@ -290,18 +290,18 @@ task.save
 
 **Get**
 ```ruby
-task = Onfleet::Task.get('TASK_ID')
+task = OnfleetClub::Task.get('TASK_ID')
 ```
 
 **Delete**
 ```ruby
-Onfleet::Task.delete('TASK_ID')
+OnfleetClub::Task.delete('TASK_ID')
 ```
 **List**
 ```ruby
-Onfleet::Task.list
+OnfleetClub::Task.list
 # You can also list tasks of certain states
-Onfleet::Task.list({state: 0}) # => returns all tasks with state 0, see official docs for valid states
+OnfleetClub::Task.list({state: 0}) # => returns all tasks with state 0, see official docs for valid states
 ```
 
 **Complete**
@@ -319,7 +319,7 @@ Currently not supported
 ```ruby
 # Returns an array with entities matching the metadata query
 # Any entity supporting metadata can be queried (eg: Admins, Workers, Tasks, Destinations, Recipients)
-tasks = Onfleet::Task.query_by_metadata([{name: "property", type: "string", value: "abc"}])
+tasks = OnfleetClub::Task.query_by_metadata([{name: "property", type: "string", value: "abc"}])
 ```
 
 ## Error Handling
@@ -333,7 +333,7 @@ rescue ConnectionError => e
 rescue InvalidRequestError => e
   # Bad request/invalid request params
   # also if resource is not found
-rescue OnfleetError => e
+rescue OnfleetClubError => e
   # general error
 end
 

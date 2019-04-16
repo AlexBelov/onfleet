@@ -1,4 +1,4 @@
-module Onfleet
+module OnfleetClub
   class Util
     def self.constantize class_name
       Object.const_get(class_name)

@@ -1,4 +1,4 @@
-module Onfleet
+module OnfleetClub
   module Actions
     module Save
       def save
@@ -9,7 +9,7 @@ module Onfleet
           request_type  = :post
           api_url = self.api_url
         end
-        response = Onfleet.request(api_url, request_type, self.attributes)
+        response = OnfleetClub.request(api_url, request_type, self.attributes)
         self.parse_response(response)
       end
     end

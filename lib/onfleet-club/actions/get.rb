@@ -1,11 +1,11 @@
-module Onfleet
+module OnfleetClub
   module Actions
-    module Delete
+    module Get
       module ClassMethods
-        def delete id
+        def get id
           api_url = "#{self.api_url}/#{id}"
-          response = Onfleet.request(api_url, :delete)
-          true
+          response  = OnfleetClub.request(api_url, :get)
+          Util.constantize("#{self}").new(response)
         end
       end
 
